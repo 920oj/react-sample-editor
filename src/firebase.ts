@@ -1,3 +1,4 @@
+import React from "react";
 import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/storage";
@@ -12,3 +13,13 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 export { firebase };
+
+interface FirebaseContext {
+  userId: string | null;
+  userName: string;
+}
+
+export const FirebaseContext = React.createContext<FirebaseContext>({
+  userId: null,
+  userName: "",
+});
